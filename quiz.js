@@ -11,6 +11,7 @@ const choiceC = document.getElementById("C");
 const progress = document.getElementById('progress');
 const scoreDiv = document.getElementById('score');
 
+
 //created questions
 let questions = [
     {
@@ -171,12 +172,13 @@ function scoreRender() {
 
     //calculate the % correct
     const scorePercent = Math.round(100 * score / questions.length);
-    let img =   (scorePercent >= 80) ? "img/5.png" :
-                (scorePercent >= 60) ? "img/4.png" :
-                (scorePercent >= 40) ? "img/3.png" :
+    let img = (scorePercent >= 80) ? "img/5.png" :
+        (scorePercent >= 60) ? "img/4.png" :
+            (scorePercent >= 40) ? "img/3.png" :
                 (scorePercent >= 20) ? "img/2.png" :
-                "img/1.png";
-    scoreDiv.innerHTML = "<img src="+ img + ">";
-    scoreDiv.innerHTML += "<p>"+ scorePercent + "</p>"
+                    "img/1.png";
+    scoreDiv.innerHTML = "<img src=" + img + ">";
+    scoreDiv.innerHTML += "<p>" + scorePercent + "</p>"
+    localStorage.setItem("scorePercent", scorePercent);
 
 }
